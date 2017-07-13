@@ -23,5 +23,5 @@ i = 0
 # Query type is fixed as any(ALL)
 while i < long(sys.argv[4]):
     i += 1
-    dnspkt=IP(src=argvs[1],dst=argvs[2])/UDP(sport=60000+i)/DNS(id=i,qd=DNSQR(qname=argvs[3],qtype="ALL"))
-    reply = sr1(dnspkt)
+    dnspkt = IP(src=argvs[1], dst=argvs[2]) / UDP(sport=60000 + i) / DNS(id=i, qd=DNSQR(qname=argvs[3], qtype="ALL"))
+    reply = send(dnspkt)
